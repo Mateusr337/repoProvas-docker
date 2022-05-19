@@ -1,4 +1,4 @@
-FROM node:15
+FROM node:18-alpine
 
 # diretório criado no container
 WORKDIR /usr/src/
@@ -7,5 +7,7 @@ WORKDIR /usr/src/
 COPY . . 
 
 RUN npm i 
+RUN npx prisma generate
+RUN npm run build
 #só executa quando rodarmos a imagem
-CMD ["npx", "nodemon", "src/server.ts"] 
+CMD ["node", "dist/src/server.js"] 

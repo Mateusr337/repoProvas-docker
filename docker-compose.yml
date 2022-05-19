@@ -22,6 +22,7 @@ services:
       - .env #configurar DATABASE_URL
     volumes:
       - .:/usr/src/
+      - usr/src/node_modules
 
 volumes:
   postgres: 
